@@ -125,3 +125,5 @@ export const generateScript = (id: string | undefined, pass: string | undefined)
 	}
 	return TEMPLATE.replace("KOUTOU_SYSTEM_USER_ID", id).replace("KOUTOU_SYSTEM_PASS", pass);
 };
+
+  

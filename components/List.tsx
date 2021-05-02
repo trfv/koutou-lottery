@@ -1,14 +1,15 @@
 import * as React from 'react'
 import { useRecoilValue } from "recoil";
 import ListItem from './ListItem'
-import { lotteryListState } from "recoil/lottery";
+import { lotteryState } from "recoil/lottery";
 
 const List = () => {
-  const { listItems, selected } = useRecoilValue(lotteryListState);
+  const { version, list } = useRecoilValue(lotteryState);
   return (
     <div style={{ flexShrink: 0 }}>
+      {version && <h3>{`更新日時：${new Date(version).toLocaleString("ja-JP")}`}</h3>}
       <ul>
-        {listItems.map((item) => <ListItem key={item.id} item={item} selected={selected === item.id} />)}
+        {list.map((item) => <ListItem key={item.id} item={item} />)}
       </ul>
     </div>
   )

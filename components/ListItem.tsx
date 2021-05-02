@@ -1,23 +1,24 @@
 import * as React from 'react'
-import type { LotteryListItem } from 'interfaces'
-import { useSetRecoilState } from 'recoil'
-import { lotteryState } from 'recoil/lottery'
+import type { LotteryDetail } from 'interfaces'
+import { useRecoilState } from 'recoil'
+import { lotteryListItemStateFamily } from 'recoil/lottery'
 
 type Props = {
-  item: LotteryListItem;
-  selected: boolean;
+  item: LotteryDetail;
 }
 
-const ListItem = ({ selected, item }: Props) => {
-  const setLottery = useSetRecoilState(lotteryState);
+const ListItem = ({ item }: Props) => {
+  const {  building, institution } = item;
+  const [{  checked }, setListItemState] = useRecoilState(lotteryListItemStateFamily(item));
+
   const handleClick = React.useCallback(() => {
-    setLottery((prevState) => ({ ...prevState, detail: prevState.list.find((d) => d.id === item.id) }));
+    setListItemState((prevState) => ({ ...prevState, checked: !prevState.checked }));
   }, []);
 
   return (
     <li>
-      <div style={{ fontWeight: selected ? "bold" : "normal", cursor: "pointer" }} onClick={handleClick}>
-        {item.building} {item.institution}
+      <div style={{ fontWeight: checked ? "bold" : "normal", cursor: "pointer" }} onClick={handleClick}>
+        {building} {institution}
       </div>
     </li>
   )

@@ -15,17 +15,16 @@ export type Lottery = {
   body: string[][]
 };
 
-export type LotteryListItem = {
-  id: string;
-  building: string;
-  institution: string;
-}
-
 export type LotteryDetail = {
   id: string;
   building: string;
   institution: string;
   lotteries: Lottery[];
+}
+
+export type LotteryDetailBlockCell = {
+  rowId: string;
+  colId: string;
 }
 
 export type PageStatus = "prepare" | "generating" | "generated" | "error";

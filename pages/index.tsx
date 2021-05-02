@@ -6,7 +6,6 @@ const LotteryPage = () => {
   const router = useRouter();
 
   const handleToGenerate = React.useCallback(() => router.push("./generate"), []);
-
   const handleToAnalyze = React.useCallback(() => router.push("./analyze"), []);
 
   return (
@@ -26,7 +25,7 @@ const LotteryPage = () => {
       <p>上記スクリプトによって取得した抽選申し込み状況を分析します。</p>
       <button onClick={handleToAnalyze}>データを分析する</button>
       <h2>備考</h2>
-      <p>以下の注意事項を守ってご利用ください</p>
+      <p>以下の注意事項を守ってご利用ください。</p>
       <ul>
         <li>スクレイピングは用法・容量を正しく守って使いましょう。</li>
         <li>モバイル端末からは利用できません。</li>

@@ -4,7 +4,7 @@ import { useSetRecoilState } from "recoil";
 import { saveAs } from "file-saver";
 import Layout from 'components/Layout'
 import type { PageStatus } from 'interfaces'
-import { convertObjectToState, lotteryState } from "recoil/lottery";
+import { convertObject, lotteryState } from "recoil/lottery";
 import { generateScript } from "utils/lottery";
 
 
@@ -22,7 +22,7 @@ const GeneratePage = () => {
     const fileReader = new window.FileReader();
     fileReader.onload = (event: ProgressEvent<FileReader>) => {
       const result =  event.target?.result;
-      const state = convertObjectToState(JSON.parse(result as string));
+      const state = convertObject(JSON.parse(result as string));
       setLottery(state);
       router.push('/analyze');
     };
@@ -105,7 +105,7 @@ const GeneratePage = () => {
           <details>
             <summary>スクリプトを実行して取得した抽選申し込み状況を、こちらの画面にアップロードしてください。</summary>
             <ul>
-              <li><a href="https://nodejs.org/ja/" target="_blank" rel="noreferrer noopener">Node.jsのセットアップが必要です。</a></li>
+              <li><a href="https://nodejs.org/ja/" target="_blank" rel="noreferrer noopener">Node.js</a>のセットアップが必要です。</li>
               <li>ターミナルなどで <code>node script.js</code> を実行すると、抽選申し込み状況のJSONファイルが出力されます。</li>
               <li>スクリプトは、抽選期間内でのみ実行可能です。</li>
               <li>スクリプトが失敗する場合は、入力からやり直してください。</li>
@@ -113,7 +113,7 @@ const GeneratePage = () => {
           </details>
           <br />
           <div style={{ display: "flex", flexDirection: "column", width: "fit-content" }}>
-            <input name="lottery" type="file" accept="application/json" multiple={false} onChange={handleFileUpload} />
+            <input name="lottery" aria-label="抽選申し込み状況" type="file" accept="application/json" multiple={false} onChange={handleFileUpload} />
             <br />
             <button type="button" onClick={handleBack} >入力画面へ戻る</button>
             <button type="button" onClick={handleBackToTop} >トップ画面へ戻る</button>

@@ -1,37 +1,21 @@
 import * as React from 'react'
 import { useRecoilValue } from 'recoil'
-import { lotteryState } from 'recoil/lottery';
+import { lotteryDetailState } from 'recoil/lottery';
+import DetailBlock from './DetailBlock';
 
 const Detail = () => {
-  const { detail } = useRecoilValue(lotteryState);
+  const { details } = useRecoilValue(lotteryDetailState);
 
-  if (!detail) {
+  if (!details.length) {
     return null;
   }
 
   return (
-    <div>
-      {detail.lotteries.map((lottery, index) => (
-        <div key={index}>
-          <hr />
-          <div style={{ display: "flex" }}>
-            {lottery.header.map((th, i) => 
-              <div key={i} style={{ width: "100px", textAlign: "center" }}>{th}</div>
-            )}
-          </div>
-          <hr />
-          {lottery.body.map((row, i) => 
-            <div key={i} style={{ display: "flex" }}>
-              {row.map((td, j) => 
-                <div key={j} style={{ width: "100px", textAlign: "center" }}>
-                  {td.includes("img") ? "-" : td}
-                </div>
-              )}
-            </div>)}
-        </div>
-      ))}
+    <div style={{ display: "flex", gap: "40px", overflow: "auto" }}>
+      {details.map((detail) => <DetailBlock key={detail.id} detail={detail} /> )}
     </div>
   )
 }
 
 export default React.memo(Detail);
+
