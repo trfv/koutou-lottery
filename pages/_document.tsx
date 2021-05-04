@@ -6,14 +6,15 @@ export default class MyDocument extends Document {
     return (
       <Html lang="ja">
         <Head>
-          {/* <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
           <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
           <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
           <link rel="manifest" href="/site.webmanifest" />
-          <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-          /> */}
+          <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#a6a6a6" />
+          <meta name="msapplication-TileColor" content="#00aba9" />
+          <meta name="theme-color" content="#a6a6a6" />
+          <meta name="keywords" content="koutou lottery" />
+          <meta name="description" content="koutou lottery" />
+          <meta name="robots" content="noindex" /> 
         </Head>
         <body>
           <Main />

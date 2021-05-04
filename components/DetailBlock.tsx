@@ -18,9 +18,7 @@ const DetailBlock = ({ detail }: Props) => {
   return (
     <div>
       <div className="mb-2 text-center cursor-pointer" onClick={handleTitleClick}>
-        <h3 className="whitespace-pre-line">
-          {`${building}\n${institution}`}
-        </h3>
+        <h3 className="whitespace-pre-line">{`${building}\n${institution}`}</h3>
       </div>
       {lotteries.map((lottery, index) => (
         <div key={index} className="flex">

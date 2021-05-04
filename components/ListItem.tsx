@@ -17,7 +17,9 @@ const ListItem = ({ item }: Props) => {
 
   return (
     <div
-      className={`px-2 py-1 shadow hover:bg-gray-300 ${checked ? "bg-gray-300 font-bold" : "bg-transparent font-normal"} cursor-pointer`}
+      className={`px-2 py-1 shadow hover:bg-gray-300 ${
+        checked ? "bg-gray-300 font-bold" : "bg-transparent font-normal"
+      } cursor-pointer`}
       onClick={handleClick}
     >
       {building} {institution}

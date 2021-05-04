@@ -24,7 +24,9 @@ const DetailBlockCell = ({ cell, children }: Props) => {
 
   return (
     <div
-      className={`w-16 text-center border-2 border-transparent hover:border-gray-300 ${highlighted ? "bg-gray-300" : "bg-transparent"} cursor-pointer`}
+      className={`w-16 text-center border-2 border-transparent hover:border-gray-300 ${
+        highlighted ? "bg-gray-300" : "bg-transparent"
+      } cursor-pointer`}
       onClick={handleClick}
     >
       {children}

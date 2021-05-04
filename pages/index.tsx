@@ -32,10 +32,14 @@ const LotteryPage = () => {
         </a>
         というライブラリを利用し、画面をスクレイピングします。
       </p>
-      <button className="mt-1" onClick={handleToGenerate}>スクリプトを生成する</button>
+      <button className="mt-1" onClick={handleToGenerate}>
+        スクリプトを生成する
+      </button>
       <h3>抽選申し込み状況分析機能</h3>
       <p>上記スクリプトによって取得した抽選申し込み状況を分析します。</p>
-      <button className="mt-1" onClick={handleToAnalyze}>データを分析する</button>
+      <button className="mt-1" onClick={handleToAnalyze}>
+        データを分析する
+      </button>
       <h2>備考</h2>
       <p>以下の注意事項を守ってご利用ください。</p>
       <ul>

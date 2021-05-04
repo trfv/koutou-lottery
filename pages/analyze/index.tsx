@@ -15,7 +15,7 @@ const AnalyzePage = () => {
   React.useEffect(() => {
     const fileReader = new window.FileReader();
     fileReader.onload = (event: ProgressEvent<FileReader>) => {
-      const result = String(event.target?.result)
+      const result = String(event.target?.result);
       const lottery = convertObject(JSON.parse(result));
       setLottery(lottery);
     };
