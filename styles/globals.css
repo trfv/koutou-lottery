@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	body {
+		@apply text-sm font-normal bg-gray-100;
+	}
+	h1 {
+		@apply text-2xl font-bold;
+	}
+	h2 {
+		@apply text-xl font-bold;
+	}
+	h3 {
+		@apply text-lg font-bold;
+	}
+	h1:not(:first-child),
+	h2:not(:first-child),
+	h3:not(:first-child) {
+		@apply mt-4;
+	}
+	p {
+		@apply mt-1;
+	}
+	a {
+		@apply mx-1 underline hover:bg-gray-200;
+	}
+	button {
+		@apply px-2 py-1 text-white text-sm rounded-sm bg-gray-500 hover:bg-gray-700;
+	}
+	button + button {
+		@apply ml-4;
+	}
+	input, select {
+		@apply bg-white shadow;
+	}
+	label {
+		@apply w-72 flex justify-between;
+	}
+	label + label {
+		@apply mt-2;
+	}
+	label > input,
+	label > select {
+		@apply w-36;
+	}
+	ul {
+		@apply list-disc list-inside;
+	}
+	li {
+		@apply mt-1;
+	}
+	code {
+		@apply mx-1;
+	}
+}

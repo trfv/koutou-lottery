@@ -5,7 +5,9 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "koutou": "node tools/scraper.js"
+    "scrape": "node tools/scraper.js",
+    "lint": "eslint \"./**/*.ts*\"",
+    "lint:fix": "eslint \"./**/*.ts*\" --fix"
   },
   "dependencies": {
     "file-saver": "2.0.5",
@@ -19,9 +21,19 @@
     "@types/node": "15.0.1",
     "@types/react": "17.0.4",
     "@types/react-dom": "17.0.3",
+    "@typescript-eslint/eslint-plugin": "4.22.0",
+    "@typescript-eslint/parser": "4.22.0",
+    "autoprefixer": "10.2.5",
     "dotenv": "8.2.0",
+    "eslint": "7.24.0",
+    "eslint-config-prettier": "8.2.0",
+    "eslint-plugin-prettier": "3.4.0",
+    "eslint-plugin-react": "7.23.2",
     "playwright": "1.10.0",
-    "ts-node": "9.1.1",
+    "postcss": "8.2.13",
+    "prettier": "2.2.1",
+    "prettier-plugin-organize-imports": "1.1.1",
+    "tailwindcss": "2.1.2",
     "typescript": "4.2.4"
   },
   "license": "MIT"

@@ -1,7 +1,7 @@
-import * as React from 'react'
-import { useRecoilValue } from 'recoil'
-import { lotteryDetailState } from 'recoil/lottery';
-import DetailBlock from './DetailBlock';
+import * as React from "react";
+import { useRecoilValue } from "recoil";
+import { lotteryDetailState } from "states/lottery";
+import DetailBlock from "./DetailBlock";
 
 const Detail = () => {
   const { details } = useRecoilValue(lotteryDetailState);
@@ -11,11 +11,12 @@ const Detail = () => {
   }
 
   return (
-    <div style={{ display: "flex", gap: "40px", overflow: "auto" }}>
-      {details.map((detail) => <DetailBlock key={detail.id} detail={detail} /> )}
+    <div className="flex gap-10 overflow-auto">
+      {details.map((detail) => (
+        <DetailBlock key={detail.id} detail={detail} />
+      ))}
     </div>
-  )
-}
+  );
+};
 
 export default React.memo(Detail);
-

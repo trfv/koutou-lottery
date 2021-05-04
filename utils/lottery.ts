@@ -120,10 +120,8 @@ main(KOUTOU_SYSTEM_USER_ID, KOUTOU_SYSTEM_PASS).then((response) => {
 `;
 
 export const generateScript = (id: string | undefined, pass: string | undefined) => {
-	if (!id || !pass) {
-		return TEMPLATE;
-	}
-	return TEMPLATE.replace("KOUTOU_SYSTEM_USER_ID", id).replace("KOUTOU_SYSTEM_PASS", pass);
+  if (!id || !pass) {
+    return TEMPLATE;
+  }
+  return TEMPLATE.replace("KOUTOU_SYSTEM_USER_ID", id).replace("KOUTOU_SYSTEM_PASS", pass);
 };
-
-  

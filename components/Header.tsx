@@ -1,12 +1,13 @@
-import * as React from 'react'
+import * as React from "react";
 
 const Header = () => {
   return (
     <header>
-      <h1>Koutou Lottery</h1>
-      <hr />
+      <div className="p-4">
+        <h1>Koutou Lottery</h1>
+      </div>
     </header>
-  )
-}
+  );
+};
 
 export default React.memo(Header);

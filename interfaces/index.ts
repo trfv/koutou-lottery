@@ -1,18 +1,18 @@
 export type LotteryResponse = {
-  version: string,
-  data: LotteryData[],
+  version: string;
+  data: LotteryData[];
 };
 
 export type LotteryData = {
   id: string;
-  building: string,
-  institution: string,
-  lottery: Lottery
+  building: string;
+  institution: string;
+  lottery: Lottery;
 };
 
 export type Lottery = {
-  header: string[],
-  body: string[][]
+  header: string[];
+  body: string[][];
 };
 
 export type LotteryDetail = {
@@ -20,12 +20,12 @@ export type LotteryDetail = {
   building: string;
   institution: string;
   lotteries: Lottery[];
-}
+};
 
 export type LotteryDetailBlockCell = {
   rowId: string;
   colId: string;
-}
+};
 
 export type PageStatus = "prepare" | "generating" | "generated" | "error";
 
