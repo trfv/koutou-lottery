@@ -117,10 +117,7 @@ config();
 const { KOUTOU_SYSTEM_USER_ID, KOUTOU_SYSTEM_PASS } = process.env;
 
 main(KOUTOU_SYSTEM_USER_ID, KOUTOU_SYSTEM_PASS).then((response) => {
-    const fileName = `tools/results/${response.version}.json`;
+    const fileName = `output/${response.version}.json`;
     writeFileSync(fileName, JSON.stringify(response));
-    if (response.data.length) {
-        copyFileSync(fileName, 'tools/results/latest.json');
-    }
-})
+}).catch(error => console.error(error));
 

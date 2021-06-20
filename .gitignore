@@ -31,4 +31,5 @@ yarn-error.log*
 .vercel
 
 # scraping results
-tools/results
+tools/output
+tools/node_modules
