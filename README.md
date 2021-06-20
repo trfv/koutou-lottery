@@ -1,3 +1,5 @@
+[![Scraping](https://github.com/trfv/koutou-lottery/actions/workflows/scraping.yml/badge.svg)](https://github.com/trfv/koutou-lottery/actions/workflows/scraping.yml)
+
 # Koutou Lottery
 https://koutou-lottery.vercel.app/
 ## はじめに
