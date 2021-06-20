@@ -12,7 +12,7 @@ jobs:
     - uses: actions/setup-node@v2
       with:
         node-version: 16.x
-    - run: cd tools && yarn install && node tools/script.js
+    - run: cd tools && yarn install && node script.js
       env:
         KOUTOU_SYSTEM_USER_ID: ${{ secrets.KOUTOU_SYSTEM_USER_ID }}
         KOUTOU_SYSTEM_PASS: ${{ secrets.KOUTOU_SYSTEM_PASS }}
