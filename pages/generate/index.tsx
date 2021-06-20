@@ -36,7 +36,7 @@ const GeneratePage = () => {
     setStatus("generating");
     try {
       const script = generateScript(idRef.current?.value, passRef.current?.value);
-      const file = new File([script], "scrpit.js", { type: "text/plain" });
+      const file = new File([script], "script.js", { type: "text/plain" });
       scriptFile.current = file;
       saveAs(file);
       setStatus("generated");
