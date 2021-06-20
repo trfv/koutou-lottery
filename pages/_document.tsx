@@ -14,7 +14,7 @@ export default class MyDocument extends Document {
           <meta name="theme-color" content="#a6a6a6" />
           <meta name="keywords" content="koutou lottery" />
           <meta name="description" content="koutou lottery" />
-          <meta name="robots" content="noindex" /> 
+          <meta name="robots" content="noindex" />
         </Head>
         <body>
           <Main />
