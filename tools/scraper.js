@@ -1,6 +1,6 @@
-import { config } from "dotenv";
-import { writeFile } from "fs";
-import { chromium } from "playwright";
+const { config } = require("dotenv");
+const { writeFile } = require("fs");
+const { chromium } = require("playwright");
 
 const getUniqueId = (uniqueStr) => {
     return uniqueStr.split("").map((s) => s.codePointAt(0)?.toString(36) ?? "").join("");

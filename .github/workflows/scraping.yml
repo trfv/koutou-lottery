@@ -2,7 +2,7 @@ name: Scraping
 
 on:
   schedule:
-    - cron: "0 */4 * * *"
+    - cron: "0 * * * *"
 
 jobs:
   build:
@@ -13,7 +13,7 @@ jobs:
       with:
         node-version: 14.x
     - uses: microsoft/playwright-github-action@v1
-    - run: cd tools && yarn install && node scraper.mjs
+    - run: cd tools && yarn install && node scraper.js
       env:
         KOUTOU_SYSTEM_USER_ID: ${{ secrets.KOUTOU_SYSTEM_USER_ID }}
         KOUTOU_SYSTEM_PASS: ${{ secrets.KOUTOU_SYSTEM_PASS }}
