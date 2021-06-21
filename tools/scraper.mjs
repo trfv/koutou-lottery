@@ -1,6 +1,6 @@
-const { config } = require("dotenv");
-const { writeFileSync, copyFileSync } = require("fs");
-const { chromium } = require('playwright');
+import { config } from "dotenv";
+import { writeFile } from "fs";
+import { chromium } from "playwright";
 
 const getUniqueId = (uniqueStr) => {
     return uniqueStr.split("").map((s) => s.codePointAt(0)?.toString(36) ?? "").join("");
@@ -27,7 +27,7 @@ const main = async (id, pass) => {
     const version = new Date().toISOString();
     const data = [];
 
-    const browser = await chromium.launch({ headless: true });
+    const browser = await chromium.launch({ headless: false });
     const context = await browser.newContext();
     const page = await context.newPage();
 
@@ -116,8 +116,10 @@ const main = async (id, pass) => {
 config();
 const { KOUTOU_SYSTEM_USER_ID, KOUTOU_SYSTEM_PASS } = process.env;
 
-main(KOUTOU_SYSTEM_USER_ID, KOUTOU_SYSTEM_PASS).then((response) => {
-    const fileName = `output/${response.version}.json`;
-    writeFileSync(fileName, JSON.stringify(response));
-}).catch(error => console.error(error));
+main(KOUTOU_SYSTEM_USER_ID, KOUTOU_SYSTEM_PASS)
+    .then((response) => {
+        const fileName = `../output/${response.version}.json`;
+        writeFile(fileName, JSON.stringify(response), () => console.log("completed."));
+    })
+    .catch(error => console.error(error));
 

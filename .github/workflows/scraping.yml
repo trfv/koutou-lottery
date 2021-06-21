@@ -2,7 +2,7 @@ name: Scraping
 
 on:
   schedule:
-    - cron: "0 * * * *"
+    - cron: "0 */4 * * *"
 
 jobs:
   build:
@@ -12,11 +12,11 @@ jobs:
     - uses: actions/setup-node@v2
       with:
         node-version: 16.x
-    - run: cd tools && yarn install && node scraper.js
+    - run: cd tools && yarn install && node scraper.mjs
       env:
         KOUTOU_SYSTEM_USER_ID: ${{ secrets.KOUTOU_SYSTEM_USER_ID }}
         KOUTOU_SYSTEM_PASS: ${{ secrets.KOUTOU_SYSTEM_PASS }}
     - uses: actions/upload-artifact@v2
       with:
-        name: result
-        path: tools/output/
+        path: output
+        if-no-files-found: error
