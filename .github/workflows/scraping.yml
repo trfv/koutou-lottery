@@ -17,7 +17,8 @@ jobs:
       env:
         KOUTOU_SYSTEM_USER_ID: ${{ secrets.KOUTOU_SYSTEM_USER_ID }}
         KOUTOU_SYSTEM_PASS: ${{ secrets.KOUTOU_SYSTEM_PASS }}
+    - run: pwd
     - uses: actions/upload-artifact@v2
       with:
-        path: output
+        path: ${{ github.workspace }}/output/**/*
         if-no-files-found: error
