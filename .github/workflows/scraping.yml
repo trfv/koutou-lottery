@@ -1,4 +1,4 @@
-name: Scraping
+name: Scraping Action
 
 on:
   workflow_dispatch:
@@ -11,9 +11,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v2
-    - run: | 
+    - name: scraping
+      run: | 
         cd tools
-        npm install
+        yarn install
         node scraper.js
       env:
         KOUTOU_SYSTEM_USER_ID: ${{ secrets.KOUTOU_SYSTEM_USER_ID }}
@@ -22,3 +23,13 @@ jobs:
       with:
         path: ${{ github.workspace }}/tools/output.json
         if-no-files-found: error
+    - name: configure aws credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ap-northeast-1
+    - name: upload output to s3
+      run: |
+        FILE_NAME=(grep -o '[0-9:.T-]*Z' ${{ github.workspace }}/tools/output.json)
+        aws s3 mv ${{ github.workspace }}/tools/output.json s3://trfv-scraping/koutou-lottery/$FILE_NAME
