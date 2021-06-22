@@ -1,11 +1,12 @@
 name: Scraping
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: "0 0/4 * * *"
 
 jobs:
-  build:
+  update:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -17,11 +18,7 @@ jobs:
       env:
         KOUTOU_SYSTEM_USER_ID: ${{ secrets.KOUTOU_SYSTEM_USER_ID }}
         KOUTOU_SYSTEM_PASS: ${{ secrets.KOUTOU_SYSTEM_PASS }}
-    - run: | 
-        pwd
-        ls
-        cd tools && ls
-        ls
+    - run: pwd && ls
     - uses: actions/upload-artifact@v2
       with:
         path: ${{ github.workspace }}/output/**/*
