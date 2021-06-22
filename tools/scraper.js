@@ -122,7 +122,7 @@ const main = async (id, pass) => {
         // const response = await main(KOUTOU_SYSTEM_USER_ID, KOUTOU_SYSTEM_PASS);
         const response = { version: "xxxxxx", data: "test" };
         console.log(process.cwd());
-        const fileName = `tools/output/${response.version}.json`;
+        const fileName = "output.json";
         writeFileSync(fileName, JSON.stringify(response));
         console.log("completed.");
     } catch (error) {
