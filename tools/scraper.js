@@ -1,5 +1,5 @@
 const { config } = require("dotenv");
-const { writeFile } = require("fs");
+const { writeFile, writeFileSync } = require("fs");
 const { chromium } = require("playwright");
 
 const getUniqueId = (uniqueStr) => {
@@ -120,6 +120,7 @@ main(KOUTOU_SYSTEM_USER_ID, KOUTOU_SYSTEM_PASS)
     .then((response) => {
         const fileName = `../output/${response.version}.json`;
         writeFile(fileName, JSON.stringify(response), () => console.log("completed."));
+        writeFileSync(file, JSON.stringify(response))
     })
     .catch(error => console.error(error));
 
