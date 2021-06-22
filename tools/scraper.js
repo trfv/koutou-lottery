@@ -103,13 +103,10 @@ const main = async (id, pass) => {
                 page.click('img[alt="もどる"]')
             ]);
         }
-        return { version, data };
-    } catch (error) {
-        console.error(error);
-        return { version, data: [] };
     } finally {
         await context.close();
         await browser.close();
+        return { version, data };
     }
 };
 
@@ -120,10 +117,10 @@ const main = async (id, pass) => {
     try {
         console.log("start.");
         const response = await main(KOUTOU_SYSTEM_USER_ID, KOUTOU_SYSTEM_PASS);
-        const fileName = "output.json";
-        writeFileSync(fileName, JSON.stringify(response));
+        writeFileSync("output.json", JSON.stringify(response));
         console.log("completed.");
     } catch (error) {
+        console.log("failed.");
         console.log(error);
     }
 })();
