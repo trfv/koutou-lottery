@@ -1,5 +1,5 @@
 const { config } = require("dotenv");
-const { writeFileSync } = require("fs").promises;
+const { writeFileSync } = require("fs");
 const { chromium } = require("playwright");
 
 const getUniqueId = (uniqueStr) => {
@@ -121,7 +121,7 @@ const main = async (id, pass) => {
         console.log("start.");
         const response = await main(KOUTOU_SYSTEM_USER_ID, KOUTOU_SYSTEM_PASS);
         const fileName = `../output/${response.version}.json`;
-        await writeFileSync(fileName, JSON.stringify(response));
+        writeFileSync(fileName, JSON.stringify(response));
         console.log("completed.");
     } catch (error) {
         console.log(error);
