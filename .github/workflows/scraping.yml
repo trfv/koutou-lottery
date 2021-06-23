@@ -19,17 +19,15 @@ jobs:
       env:
         KOUTOU_SYSTEM_USER_ID: ${{ secrets.KOUTOU_SYSTEM_USER_ID }}
         KOUTOU_SYSTEM_PASS: ${{ secrets.KOUTOU_SYSTEM_PASS }}
-    - uses: actions/upload-artifact@v2
-      with:
-        path: ${{ github.workspace }}/tools/output.json
-        if-no-files-found: error
     - name: configure aws credentials
+      if: success()
       uses: aws-actions/configure-aws-credentials@v1
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: ap-northeast-1
     - name: upload output to s3
+      if: success()
       run: |
         FILE_NAME=$(grep -o '[0-9:.T-]*Z' ${{ github.workspace }}/tools/output.json).json
         aws s3 mv ${{ github.workspace }}/tools/output.json s3://trfv-scraping/koutou-lottery/$FILE_NAME
