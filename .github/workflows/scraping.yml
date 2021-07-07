@@ -32,11 +32,11 @@ jobs:
         FILE_NAME=$(grep -o '[0-9:.T-]*Z' ${{ github.workspace }}/tools/output.json).json
         aws s3 mv ${{ github.workspace }}/tools/output.json s3://trfv-scraping/koutou-lottery/$FILE_NAME
     - name: notify to slack
-      if: always()
+      if: failure()
       uses: slackapi/slack-github-action@v1.15.0
       with:
         channel-id: 'C015M2NNWLU'
-        slack-message: 'action is done.'
+        slack-message: '@here {{ github.repository }} {{ github.workflow }} is failed. https://github.com/{{ github.repository }}/actions/runs/{{ github.run_id }}'
       env:
         SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
       
