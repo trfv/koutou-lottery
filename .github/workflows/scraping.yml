@@ -3,7 +3,7 @@ name: Scraping Action
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 0/4 * * *"
+    - cron: "0/30 * * * *"
 
 jobs:
   update:
@@ -31,3 +31,11 @@ jobs:
       run: |
         FILE_NAME=$(grep -o '[0-9:.T-]*Z' ${{ github.workspace }}/tools/output.json).json
         aws s3 mv ${{ github.workspace }}/tools/output.json s3://trfv-scraping/koutou-lottery/$FILE_NAME
+    - name: notify to slack
+      if: always()
+      uses: slackapi/slack-github-action@v1.15.0
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      
+
+
