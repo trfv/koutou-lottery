@@ -122,5 +122,6 @@ const main = async (id, pass) => {
     } catch (error) {
         console.log("failed.");
         console.log(error);
+        throw error;
     }
 })();
