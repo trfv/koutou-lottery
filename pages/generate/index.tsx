@@ -30,8 +30,6 @@ const GeneratePage = () => {
 
   const handleBack = React.useCallback(() => setStatus("prepare"), []);
 
-  const handleBackToTop = React.useCallback(() => router.push("./"), []);
-
   const handleScriptGenerate = React.useCallback(() => {
     setStatus("generating");
     try {
@@ -49,14 +47,6 @@ const GeneratePage = () => {
     const file = scriptFile.current;
     file && saveAs(file);
   }, [scriptFile.current]);
-
-  const handleFileUpload = React.useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      const file = e.target.files?.[0];
-      file && reader.current?.readAsText(file);
-    },
-    [reader.current]
-  );
 
   return (
     <Layout>
@@ -98,9 +88,6 @@ const GeneratePage = () => {
             <button type="button" onClick={handleScriptGenerate}>
               スプリプトを生成する
             </button>
-            <button type="button" onClick={handleBackToTop}>
-              トップ画面へ戻る
-            </button>
           </div>
         </>
       )}
@@ -115,9 +102,6 @@ const GeneratePage = () => {
           <div className="mt-4">
             <button type="button" onClick={handleBack}>
               入力画面へ戻る
-            </button>
-            <button type="button" onClick={handleBackToTop}>
-              トップ画面へ戻る
             </button>
           </div>
         </>
@@ -137,9 +121,10 @@ const GeneratePage = () => {
               <li>それでもダウンロードできない場合は、入力からやり直してください。</li>
             </ul>
           </details>
-          <details>
+          <details className="mt-2">
             <summary>
-              スクリプトを実行して取得した抽選申し込み状況を、こちらの画面にアップロードしてください。
+              スクリプトを実行して取得した抽選申し込み状況を、<a href="./analyze">こちらの画面</a>
+              でアップロードしてください。
             </summary>
             <ul>
               <li>
@@ -158,21 +143,8 @@ const GeneratePage = () => {
             </ul>
           </details>
           <div className="mt-4">
-            <input
-              name="lottery"
-              aria-label="抽選申し込み状況"
-              type="file"
-              accept="application/json"
-              multiple={false}
-              onChange={handleFileUpload}
-            />
-          </div>
-          <div className="mt-4">
             <button type="button" onClick={handleBack}>
               入力画面へ戻る
-            </button>
-            <button type="button" onClick={handleBackToTop}>
-              トップ画面へ戻る
             </button>
           </div>
         </>
@@ -185,9 +157,6 @@ const GeneratePage = () => {
           <div className="mt-4">
             <button type="button" onClick={handleBack}>
               入力画面へ戻る
-            </button>
-            <button type="button" onClick={handleBackToTop}>
-              トップ画面へ戻る
             </button>
           </div>
         </>

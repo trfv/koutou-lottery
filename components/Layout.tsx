@@ -1,7 +1,6 @@
 import Head from "next/head";
 import React, { ReactNode } from "react";
-import Footer from "./Footer";
-import Header from "./Header";
+import Sidebar from "./Sidebar";
 
 type Props = {
   children?: ReactNode;
@@ -9,16 +8,15 @@ type Props = {
 };
 
 const Layout = ({ children, title = "Koutou Lottery" }: Props) => (
-  <div>
+  <>
     <Head>
       <title>{title}</title>
       <meta charSet="utf-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
-    <Header />
-    <main className="p-4">{children}</main>
-    <Footer />
-  </div>
+    <Sidebar />
+    <section className="relative min-h-screen top-0 left-14 p-4">{children}</section>
+  </>
 );
 
 export default Layout;

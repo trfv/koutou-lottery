@@ -4,7 +4,7 @@
 
 @layer base {
 	body {
-		@apply text-sm font-normal bg-gray-100;
+		@apply text-sm font-normal bg-gray-100 min-h-screen w-full overflow-hidden;
 	}
 	h1 {
 		@apply text-2xl font-bold;
