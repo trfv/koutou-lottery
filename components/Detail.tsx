@@ -11,7 +11,7 @@ const Detail = () => {
   }
 
   return (
-    <div className="flex gap-10 overflow-auto">
+    <div className="mt-12 flex gap-10 overflow-auto">
       {details.map((detail) => (
         <DetailBlock key={detail.id} detail={detail} />
       ))}
