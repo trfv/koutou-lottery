@@ -16,14 +16,14 @@ const ListItem = ({ item }: Props) => {
   }, []);
 
   return (
-    <div
+    <li
       className={`px-2 py-1 shadow hover:bg-gray-300 ${
         checked ? "bg-gray-300 font-bold" : "bg-transparent font-normal"
       } cursor-pointer`}
       onClick={handleClick}
     >
       {building} {institution}
-    </div>
+    </li>
   );
 };
 

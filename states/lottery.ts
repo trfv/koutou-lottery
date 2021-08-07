@@ -20,7 +20,7 @@ type LotteryListItemState = {
 
 export const lotteryListItemStateFamily = atomFamily<LotteryListItemState, LotteryDetail>({
   key: "lotteryListItem",
-  default: { checked: false },
+  default: { checked: true },
 });
 
 type LotteryDetailBlockCellState = {

@@ -15,7 +15,7 @@ const Layout = ({ children, title = "Koutou Lottery" }: Props) => (
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
     <Sidebar />
-    <section className="relative min-h-screen top-0 left-14 p-4">{children}</section>
+    <section className="relative min-h-screen top-0 left-14 p-4 overflow-auto">{children}</section>
   </>
 );
 

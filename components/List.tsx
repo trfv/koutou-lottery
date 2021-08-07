@@ -8,11 +8,11 @@ const List = () => {
   return (
     <div className="flex-shrink-0">
       {version && <h3>{`取得日時：${new Date(version).toLocaleString("ja-JP")}`}</h3>}
-      <div className="mt-4">
+      <ul className="mt-4 list-none">
         {list.map((item) => (
           <ListItem key={item.id} item={item} />
         ))}
-      </div>
+      </ul>
     </div>
   );
 };
